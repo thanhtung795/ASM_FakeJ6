@@ -1,0 +1,7 @@
+<div class="list-group">
+  <h5 class="mt-3">Category</h5>
+    <a href="/products/list" class="list-group-item">All</a>
+  <a th:each="c:${cates}" th:href="@{|/products/list?cid=${c.id}|}"
+     th:text="${c.name}" class="list-group-item"></a>
+</div>
+ 

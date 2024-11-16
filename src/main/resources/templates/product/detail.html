@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+  <!-- Thêm liên kết đến CSS của Bootstrap nếu chưa có -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<main>
+  <div th:object="${product}" class="poly-item-detail container my-4">
+    <!-- Card chứa ảnh sản phẩm -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card text-center">
+          <div class="card-body">
+            <img th:src="@{|/assets/images/*{image}|}" class="img-fluid rounded" alt="Product Image">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card chứa thông tin sản phẩm -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" th:text="*{name}"></h5>
+            <p class="card-text"><strong>Price:</strong> <span th:text="*{price}"></span></p>
+            <p class="card-text"><strong>Created Date:</strong> <span th:text="*{createdDate}"></span></p>
+            <p class="card-text"><strong>Category:</strong> <span th:text="*{category.name}"></span></p>
+          </div>
+          <div class="card-footer text-right">
+            <a  href="/cart/viewCart" th:attr="ng-click=@{|cart.add(${product.id})|}"  class="btn btn-success">
+              <i class="glyphicon glyphicon-shopping-cart"></i> Add to Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card chứa các sản phẩm cùng loại -->
+    <div class="row my-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">Related Products</div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" th:each="p:*{category.products}">
+                <a th:href="@{|/products/detail/${p.id}|}" th:text="${p.name}"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Thêm các liên kết đến JavaScript của Bootstrap nếu cần -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
