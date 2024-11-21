@@ -1,3 +1,4 @@
+use lab8java6;
 
 -- 1. Thêm dữ liệu vào bảng accounts
 INSERT INTO accounts (username, email, fullname, password, photo) VALUES
@@ -5,7 +6,7 @@ INSERT INTO accounts (username, email, fullname, password, photo) VALUES
 ('dinhquoctien', 'dinhquoctien@example.com', 'Đinh Quốc Tiên', '$2a$12$gcehIK9MyNHe.byHrITf7uchHjoCyJuCrrjDTQZodiGzVvsGNjA26', 'photo2.jpg'),
 ('vothanhtung', 'vothanhtung@example.com', 'Võ Thanh Tùng', '$2a$12$gcehIK9MyNHe.byHrITf7uchHjoCyJuCrrjDTQZodiGzVvsGNjA26', 'photo3.jpg'),
 ('vudangquang', 'vudangquang@example.com', 'Vũ Đăng Quang', '$2a$12$gcehIK9MyNHe.byHrITf7uchHjoCyJuCrrjDTQZodiGzVvsGNjA26', 'photo4.jpg'),
-('buiminhquang', 'buiminhquang@example.com', 'Bùi Minh Quang', '$2a$12$gcehIK9MyNHe.byHrITf7uchHjoCyJuCrrjDTQZodiGzVvsGNjA2 6', 'photo5.jpg');
+('buiminhquang', 'buiminhquang@example.com', 'Bùi Minh Quang', '$2a$12$gcehIK9MyNHe.byHrITf7uchHjoCyJuCrrjDTQZodiGzVvsGNjA26', 'photo5.jpg'); 
 
 INSERT INTO roles (name) VALUES
 ('STAF'),
@@ -33,7 +34,7 @@ INSERT INTO categories (name) VALUES
 ('Footwear'),
 ('Accessories');
 -- Danh sách tên sản phẩm mẫu cho từng loại category
-INSERT INTO products (avaliable, created_date, image, name, price, id_category) VALUES
+INSERT INTO products (avaliable, created_date, image, name, price, Category_Id) VALUES
 -- Electronics (Category ID 1)
 (1, NOW(), '1001.jpg', 'Laptop', 500.0, 1),
 (1, NOW(), '1002.jpg', 'Smartphone', 300.0, 1),

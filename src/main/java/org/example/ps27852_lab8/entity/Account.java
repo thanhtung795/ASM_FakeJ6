@@ -30,7 +30,7 @@ public class Account {
     private String photo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     List<Authority> authorities;
 
     @JsonIgnore
