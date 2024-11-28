@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs" style="font-variant: small-caps">
+
+    <li><a data-toggle="tab" data-target="#chart">Statistics</a></li>
+    <li class="active"><a data-toggle="tab" data-target="#list" href="">Customer List</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="chart" class="tab-pane fade w-100">
+        <div id="main-chart" style="width: 1200px; height: 400px;"></div>
+    </div>
+    <div id="list" class="tab-pane fade in active">
+        <!-- Đảm bảo đường dẫn ng-include chính xác -->
+        <div ng-include="'/assets/admin/report/_table.html'"></div>
+    </div>
+</div>

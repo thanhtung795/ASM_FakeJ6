@@ -2,6 +2,7 @@ package org.example.ps27852_lab8.rest.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.ps27852_lab8.entity.Account;
+import org.example.ps27852_lab8.entity.CustomerSpending;
 import org.example.ps27852_lab8.service.AccountService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,8 @@ public class RestAccount {
         }
         return accountService.getAllAccounts();
     }
-
+    @GetMapping("/getHighestSpendingCustomers")
+    public List<CustomerSpending> getHighestSpendingCustomers() {
+        return accountService.getHighestSpendingCustomers();
+    }
 }

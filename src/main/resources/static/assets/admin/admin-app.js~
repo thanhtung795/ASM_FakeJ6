@@ -6,7 +6,7 @@ app.config(function ($routeProvider) {
       templateUrl: "/assets/admin/product/index.html",
       controller: "product-ctrl",
     })
-      .when("/reports", {
+      .when("/peports", {
         templateUrl: "/assets/admin/report/index.html",
         controller: "report-ctrl",
       })
