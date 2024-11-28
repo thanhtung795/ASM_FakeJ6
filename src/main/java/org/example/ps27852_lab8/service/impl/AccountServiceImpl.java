@@ -2,6 +2,7 @@ package org.example.ps27852_lab8.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.ps27852_lab8.entity.Account;
+import org.example.ps27852_lab8.entity.CustomerSpending;
 import org.example.ps27852_lab8.repository.AccountRepository;
 import org.example.ps27852_lab8.service.AccountService;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
+    }
+
+    @Override
+    public List<CustomerSpending> getHighestSpendingCustomers() {
+        return accountRepository.getHighestSpendingCustomers();
     }
 
 }
