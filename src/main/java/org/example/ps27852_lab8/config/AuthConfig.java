@@ -1,5 +1,6 @@
 package org.example.ps27852_lab8.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,14 +14,11 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthConfig {
 
     private final CustomUserDetailsService userDetailsService;
-
-    public AuthConfig(CustomUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -48,7 +46,8 @@ public class AuthConfig {
                 .httpBasic(Customizer.withDefaults())
                 .csrf(config -> config.disable())
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers("/order/**").authenticated()
+                        .requestMatchers("/order/checkout", "/order/viewOrders"
+                                , "/order/detail").authenticated()
                         .requestMatchers("/assets/admin/**").hasAnyAuthority("STAF", "DIRE")
                         .anyRequest().permitAll())
                 .rememberMe(remb -> remb.tokenValiditySeconds(86400))
