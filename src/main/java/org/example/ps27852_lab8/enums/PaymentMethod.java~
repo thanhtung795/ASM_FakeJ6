@@ -1,0 +1,26 @@
+package org.example.ps27852_lab8.enums;
+
+import java.util.Arrays;
+
+public enum PaymentMethod {
+    CASH("Thanh toán tiền mặt"),
+    BANK_TRANSFER("Chuyển khoản");
+
+    private final String displayName;
+
+    PaymentMethod(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    // Phương thức tiện ích để tìm enum theo displayName
+    public static PaymentMethod fromDisplayName(String displayName) {
+        return Arrays.stream(PaymentMethod.values())
+                .filter(method -> method.displayName.equalsIgnoreCase(displayName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Phương thức thanh toán không hợp lệ: " + displayName));
+    }
+}

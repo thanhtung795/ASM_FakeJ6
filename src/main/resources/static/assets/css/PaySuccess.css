@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+h1.success {
+    color: #28a745;  /* Màu xanh cho trạng thái thành công */
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h1.failed {
+    color: #dc3545;  /* Màu đỏ cho trạng thái thất bại */
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+
+.status-icon.success {
+    font-size: 5rem;
+    color: #28a745;  /* Màu xanh cho trạng thái thành công */
+    margin-bottom: 20px;
+}
+
+.status-icon.failed {
+    font-size: 5rem;
+    color: #dc3545;  /* Màu đỏ cho trạng thái thất bại */
+    margin-bottom: 20px;
+}

@@ -21,12 +21,15 @@
               <div class="form-control">{{order.createDate | date:'dd-MM-yyyy'}}</div>
             </div>
           </div>
-          <div class="row">
             <div class="form-group col-sm-12">
               <label>Shipping Address:</label>
               <textarea ng-model="order.address" class="form-control" rows="3"></textarea>
             </div>
-          </div>
+          <select ng-model="order.paymentMethod" class="form-select mb-3 mt-3" aria-label="Default select example">
+            <option value="" selected>Open this select method of payment</option> <!-- Giá trị rỗng -->
+            <option value="CASH">Cash</option>
+            <option value="BANK_TRANSFER">Bank Transfer</option>
+          </select>
         </div>
         <div class="card-footer text-right">
           <button ng-click="order.purchase()" class="btn btn-success">

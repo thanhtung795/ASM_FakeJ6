@@ -10,4 +10,6 @@ public interface OrderrService {
     Order create(JsonNode orderData );
     Order findById(Integer id);
     List<Order> getAllOrderByUsername(String username);
+    Order updatePaymentStatus (Integer id);
+    void deleteOrder(Integer id);
 }
